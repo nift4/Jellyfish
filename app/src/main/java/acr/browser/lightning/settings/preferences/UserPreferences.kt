@@ -279,7 +279,7 @@ class UserPreferences @Inject constructor(
      * the navigation drawer UI is used, the tab drawer will be displayed on the opposite side as
      * well.
      */
-    var bookmarksAndTabsSwapped by preferences.booleanPreference(R.string.pref_key_swap_tabs_and_bookmarks, false)
+    var bookmarksAndTabsSwapped by preferences.booleanPreference(R.string.pref_key_swap_tabs_and_bookmarks, R.bool.pref_default_swap_drawer)
 
     /**
      * Disable gesture actions on drawer.
