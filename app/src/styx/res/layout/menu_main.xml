@@ -70,7 +70,8 @@
                 android:layout_weight="1"
                 android:contentDescription="@string/action_bookmarks"
                 app:tooltipText="@{@string/action_bookmarks}"
-                app:srcCompat="@drawable/round_star_border_24" />
+                app:srcCompat="@drawable/round_star_border_24"
+                android:visibility="gone" />
 
             <ImageButton
                 android:id="@+id/menuShortcutHome"
@@ -80,9 +81,7 @@
                 android:layout_weight="1"
                 android:contentDescription="@string/action_show_homepage"
                 app:tooltipText="@{@string/action_show_homepage}"
-                app:srcCompat="@drawable/ic_action_home"
-                android:visibility="gone"
-                />
+                app:srcCompat="@drawable/ic_action_home" />
 
         </LinearLayout>
 
@@ -156,25 +155,17 @@ TODO: Find a way not to scroll that guy without breaking our layout
                         app:drawableStartCompat="@drawable/ic_sessions"
                         android:text="@string/action_sessions" />
 
-                    <TextView
-                        android:id="@+id/menuItemBookmarks"
-                        style="@style/BrowserTextMenuItem"
-                        app:drawableStartCompat="@drawable/ic_bookmarks"
-                        android:text="@string/action_bookmarks"
-                        android:visibility="gone"
-                        />
-
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:background="?android:attr/listDivider" />
 
-                    <!--<TextView-->
-                    <!--    android:id="@+id/menuItemBookmarks"-->
-                    <!--    style="@style/BrowserTextMenuItem"-->
-                    <!--    android:background="?attr/selectableItemBackground"-->
-                    <!--    android:text="@string/action_bookmarks"-->
-                    <!--    app:drawableStartCompat="@drawable/ic_bookmark_border" />-->
+                    <TextView
+                        android:id="@+id/menuItemBookmarks"
+                        style="@style/BrowserTextMenuItem"
+                        app:drawableStartCompat="@drawable/ic_bookmarks"
+                        android:text="@string/action_bookmarks"
+                        />
 
                     <TextView
                         android:id="@+id/menuItemHistory"
