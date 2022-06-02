@@ -28,6 +28,7 @@
         <Preference
             android:title="@string/settings_title_discord"
             android:summary="@string/settings_summary_discord"
+            app:isPreferenceVisible="false"
             app:icon="@drawable/ic_discord"
             app:iconSpaceReserved="false"
             app:singleLineTitle="false" >
@@ -76,10 +77,10 @@
                     android:value="SELF" />
             </intent>
         </Preference>
-
         <Preference
             android:title="@string/settings_title_terms_and_conditions"
             android:summary="@string/settings_summary_terms_and_conditions"
+            app:isPreferenceVisible="false"
             app:iconSpaceReserved="false"
             app:icon="@drawable/ic_handshake"
             app:singleLineTitle="false">
@@ -97,6 +98,7 @@
         <Preference
             android:title="@string/settings_title_privacy_policy"
             android:summary="@string/settings_summary_privacy_policy"
+            app:isPreferenceVisible="false"
             app:iconSpaceReserved="false"
             app:icon="@drawable/ic_privacy_tip"
             app:singleLineTitle="false">
@@ -110,14 +112,13 @@
             </intent>
 
         </Preference>
-
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/licenses">
 
         <Preference
             android:summary="@string/license_cpal"
-            android:title="@string/app_name"
+            android:title="Fulguris"
             app:icon="@drawable/ic_lightning"
             app:iconSpaceReserved="false"
             app:singleLineTitle="false">

@@ -35,6 +35,8 @@ class UserPreferences @Inject constructor(
     screenSize: ScreenSize
 ) {
 
+    var alwaysDesktopUi by preferences.booleanPreference("jellyfish_desktop_ui", false)
+
     /**
      * True if Web RTC is enabled in the browser, false otherwise.
      */
@@ -154,7 +156,7 @@ class UserPreferences @Inject constructor(
      *
      * @see SearchEngineProvider
      */
-    var searchChoice by preferences.intPreference(SEARCH, 1)
+    var searchChoice by preferences.intPreference(SEARCH, 7)
 
     /**
      * The custom URL which should be used for making searches.
@@ -210,7 +212,7 @@ class UserPreferences @Inject constructor(
      * True if the browser should extract the theme color from a website and color the UI with it,
      * false otherwise.
      */
-    var colorModeEnabled by preferences.booleanPreference(R.string.pref_key_web_page_theme, true)
+    var colorModeEnabled by preferences.booleanPreference(R.string.pref_key_web_page_theme, false)
 
     /**
      * The index of the URL/search box display choice/
@@ -313,7 +315,7 @@ class UserPreferences @Inject constructor(
      *
      * @see SearchEngineProvider
      */
-    var searchSuggestionChoice by preferences.intPreference(SEARCH_SUGGESTIONS, 1)
+    var searchSuggestionChoice by preferences.intPreference(SEARCH_SUGGESTIONS, 0)
 
     /**
      * User can disable Firebase Google Analytics.

@@ -360,10 +360,10 @@ abstract class BrowserActivity : ThemedBrowserActivity(), BrowserView, UIControl
                         // TODO: Remove that a few versions down the road
                         && tabsManager.iSessions.count()==1 && tabsManager.allTabs.count()==1) {
                     // First run
-                    welcomeToFulguris()
+                    //welcomeToFulguris()
                 } else {
                     // Version was updated
-                    notifyVersionUpdate()
+                    //notifyVersionUpdate()
                 }
                 // Persist our current version so that we don't kick in next time
                 userPreferences.versionCode = BuildConfig.VERSION_CODE
@@ -528,7 +528,7 @@ abstract class BrowserActivity : ThemedBrowserActivity(), BrowserView, UIControl
         // TODO: could use data binding instead
         iMenuMain.apply {
             // Menu
-            onMenuItemClicked(iBinding.menuItemWebPage) { dismiss(); showMenuWebPage() }
+            //onMenuItemClicked(iBinding.menuItemWebPage) { dismiss(); showMenuWebPage() }
             // Bind our actions
             onMenuItemClicked(iBinding.menuItemSessions) { dismiss(); executeAction(R.id.action_sessions) }
             onMenuItemClicked(iBinding.menuItemNewTab) { dismiss(); executeAction(R.id.action_new_tab) }
@@ -552,6 +552,20 @@ abstract class BrowserActivity : ThemedBrowserActivity(), BrowserView, UIControl
             // Back and forward do not dismiss the menu to make it easier for users to navigate tab history
             onMenuItemClicked(iBinding.menuShortcutForward) { iBinding.layoutMenuItemsContainer.isVisible=false; executeAction(R.id.action_forward) }
             onMenuItemClicked(iBinding.menuShortcutBack) { iBinding.layoutMenuItemsContainer.isVisible=false; executeAction(R.id.action_back) }
+
+            /* STYX start combined menu */
+            // Web page actions
+            onMenuItemClicked(iBinding.menuItemShare) { dismiss(); executeAction(R.id.action_share) }
+            onMenuItemClicked(iBinding.menuItemAddBookmark) { dismiss(); executeAction(R.id.action_add_bookmark) }
+            onMenuItemClicked(iBinding.menuItemFind) { dismiss(); executeAction(R.id.action_find) }
+            onMenuItemClicked(iBinding.menuItemPrint) { dismiss(); executeAction(R.id.action_print) }
+            onMenuItemClicked(iBinding.menuItemAddToHome) { dismiss(); executeAction(R.id.action_add_to_homescreen) }
+            onMenuItemClicked(iBinding.menuItemReaderMode) { dismiss(); executeAction(R.id.action_reading_mode) }
+            onMenuItemClicked(iBinding.menuItemDesktopMode) { dismiss(); executeAction(R.id.action_toggle_desktop_mode) }
+            onMenuItemClicked(iBinding.menuItemDarkMode) { dismiss(); executeAction(R.id.action_toggle_dark_mode) }
+            onMenuItemClicked(iBinding.menuItemAdBlock) { dismiss(); executeAction(R.id.action_block) }
+            onMenuItemClicked(iBinding.menuItemTranslate) { dismiss(); executeAction(R.id.action_translate) }
+            /* STYX end */
 
             // Make it full screen gesture friendly
             setOnDismissListener { justClosedMenuCountdown() }
@@ -1465,14 +1479,13 @@ abstract class BrowserActivity : ThemedBrowserActivity(), BrowserView, UIControl
         // Check if our tool bar is long enough to display extra buttons
         val threshold = (iBindingToolbarContent.buttonActionBack.width?:3840)*10
         // If our tool bar is longer than 10 action buttons then we show extra buttons
-        (iBinding.toolbarInclude.toolbar.width>threshold).let{
+        (iBinding.toolbarInclude.toolbar.width>threshold || userPreferences.alwaysDesktopUi).let{
             iBindingToolbarContent.buttonActionBack.isVisible = it
             iBindingToolbarContent.buttonActionForward.isVisible = it
-            // Hide tab bar action buttons if no room for them
-            if (tabsView is TabsDesktopView) {
-                (tabsView as TabsDesktopView).iBinding.actionButtons.isVisible = it
-            }
         }
+            if (tabsView is TabsDesktopView) {
+                (tabsView as TabsDesktopView).iBinding.actionButtons.isVisible = true
+            }
 
     }
 

@@ -696,5 +696,6 @@
     <string name="action_switch_to_tab">Switch to tab 1 to 9</string>
     <string name="action_switch_to_last_tab">Switch to last tab</string>
     <string name="action_switch_to_last_session">Switch to last session</string>
+	<string name="settings_jellyfish_desktop_ui">Always use desktop toolbar UI</string>
 
 </resources>
