@@ -124,14 +124,14 @@ TODO: Find a way not to scroll that guy without breaking our layout
                     android:orientation="vertical"
                     android:animateLayoutChanges="true">
 
-                    <TextView
+<!--                    <TextView
                         android:id="@+id/menuItemWebPage"
                         style="@style/BrowserTextMenuItem"
                         android:background="?attr/selectableItemBackground"
                         android:visibility="gone"
                         tools:visibility="visible"
                         app:drawableStartCompat="@drawable/ic_web"
-                        android:text="@string/action_webpage" />
+                        android:text="@string/action_webpage" />-->
 
                     <TextView
                         android:id="@+id/menuItemNewTab"
@@ -154,6 +154,123 @@ TODO: Find a way not to scroll that guy without breaking our layout
                         android:background="?attr/selectableItemBackground"
                         app:drawableStartCompat="@drawable/ic_sessions"
                         android:text="@string/action_sessions" />
+
+                    <View
+                        android:id="@+id/divider1"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="?android:attr/listDivider" />
+
+                    <TextView
+                        android:id="@+id/menuItemAddBookmark"
+                        style="@style/BrowserTextMenuItem"
+                        android:background="?attr/selectableItemBackground"
+                        android:visibility="gone"
+                        tools:visibility="visible"
+                        app:drawableStartCompat="@drawable/ic_bookmark_add"
+                        android:text="@string/action_add_bookmark" />
+
+                    <TextView
+                        android:id="@+id/menuItemShare"
+                        style="@style/BrowserTextMenuItem"
+                        android:background="?attr/selectableItemBackground"
+                        android:visibility="gone"
+                        tools:visibility="visible"
+                        app:drawableStartCompat="@drawable/ic_share"
+                        android:text="@string/action_share" />
+
+                    <TextView
+                        android:id="@+id/menuItemFind"
+                        style="@style/BrowserTextMenuItem"
+                        android:background="?attr/selectableItemBackground"
+                        android:visibility="gone"
+                        tools:visibility="visible"
+                        app:drawableStartCompat="@drawable/ic_find"
+                        android:text="@string/action_find" />
+
+                    <TextView
+                        android:id="@+id/menuItemAddToHome"
+                        style="@style/BrowserTextMenuItem"
+                        android:background="?attr/selectableItemBackground"
+                        android:visibility="gone"
+                        tools:visibility="visible"
+                        app:drawableStartCompat="@drawable/ic_add_to_home_screen"
+                        android:text="@string/action_add_to_homescreen" />
+
+                    <TextView
+                        android:id="@+id/menuItemPrint"
+                        style="@style/BrowserTextMenuItem"
+                        android:background="?attr/selectableItemBackground"
+                        android:visibility="gone"
+                        tools:visibility="visible"
+                        app:drawableStartCompat="@drawable/ic_action_print"
+                        android:text="@string/action_print" />
+
+                    <TextView
+                        android:id="@+id/menuItemReaderMode"
+                        style="@style/BrowserTextMenuItem"
+                        android:background="?attr/selectableItemBackground"
+                        android:visibility="gone"
+                        tools:visibility="visible"
+                        app:drawableStartCompat="@drawable/ic_action_reading"
+                        android:text="@string/reading_mode" />
+
+                    <TextView
+                        android:id="@+id/menuItemTranslate"
+                        style="@style/BrowserTextMenuItem"
+                        android:background="?attr/selectableItemBackground"
+                        app:drawableStartCompat="@drawable/ic_translate"
+                        android:text="@string/action_translate" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="?android:attr/listDivider" />
+
+                    <CheckBox
+                        android:id="@+id/menuItemDesktopMode"
+                        style="@style/BrowserTextMenuItem"
+                        android:background="?attr/selectableItemBackground"
+                        android:visibility="gone"
+                        tools:visibility="visible"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:button="@null"
+                        android:text="@string/agent_desktop"
+                        android:gravity="center_vertical"
+                        android:enabled="true"
+                        app:drawableEndCompat="?android:attr/listChoiceIndicatorMultiple"
+                        app:drawableStartCompat="@drawable/round_desktop_windows_24" />
+
+                    <CheckBox
+                        android:id="@+id/menuItemDarkMode"
+                        style="@style/BrowserTextMenuItem"
+                        android:background="?attr/selectableItemBackground"
+                        android:visibility="gone"
+                        tools:visibility="visible"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:button="@null"
+                        android:text="@string/dark_theme"
+                        android:gravity="center_vertical"
+                        android:enabled="true"
+                        app:drawableEndCompat="?android:attr/listChoiceIndicatorMultiple"
+                        app:drawableStartCompat="@drawable/round_dark_mode_24" />
+
+                    <CheckBox
+                        android:id="@+id/menuItemAdBlock"
+                        style="@style/BrowserTextMenuItem"
+                        android:background="?attr/selectableItemBackground"
+                        android:visibility="gone"
+                        tools:visibility="visible"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:button="@null"
+                        android:text="@string/block_ads"
+                        android:gravity="center_vertical"
+                        android:enabled="true"
+                        app:drawableEndCompat="?android:attr/listChoiceIndicatorMultiple"
+                        app:drawableStartCompat="@drawable/outline_remove_circle_outline_24" />
 
                     <View
                         android:layout_width="match_parent"

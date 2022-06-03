@@ -8,6 +8,8 @@ import acr.browser.lightning.di.HiltEntryPoint
 import acr.browser.lightning.di.configPrefs
 import acr.browser.lightning.settings.preferences.UserPreferences
 import acr.browser.lightning.utils.Utils
+import acr.browser.lightning.utils.isAppScheme
+import acr.browser.lightning.utils.isSpecialUrl
 import android.graphics.drawable.ColorDrawable
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -115,7 +117,7 @@ class MenuMain : PopupWindow {
     private fun applyMainMenuItemVisibility() {
         // Reset items visibility
         iBinding.layoutMenuItemsContainer.isVisible=true;
-        iBinding.menuItemWebPage.isVisible = true
+        //iBinding.menuItemWebPage.isVisible = true
         // Basic items
         iBinding.menuItemSessions.isVisible = !iIsIncognito
         //iBinding.menuItemBookmarks.isVisible = true
@@ -127,6 +129,32 @@ class MenuMain : PopupWindow {
 
         iBinding.menuItemExit.isVisible = iUserPreferences.menuShowExit || iIsIncognito
         iBinding.menuItemNewTab.isVisible = iUserPreferences.menuShowNewTab
+
+        /* STYX start combined menu */
+        // Those menu items are always on even for special URLs
+        iBinding.menuItemFind.isVisible = true
+        iBinding.menuItemPrint.isVisible = true
+        iBinding.menuItemReaderMode.isVisible = true
+
+        (contentView.context as BrowserActivity).tabsManager.let { tm ->
+            tm.currentTab?.let { tab ->
+                // Let user add multiple times the same URL I guess, for now anyway
+                // Blocking it is not nice and subscription is more involved I guess
+                // See BookmarksDrawerView.updateBookmarkIndicator
+                //contentView.menuItemAddBookmark.visibility = if (bookmarkModel.isBookmark(tab.url).blockingGet() || tab.url.isSpecialUrl()) View.GONE else View.VISIBLE
+                (!(tab.url.isSpecialUrl() || tab.url.isAppScheme())).let {
+                    // Those menu items won't be displayed for special URLs
+                    iBinding.menuItemDesktopMode.isVisible = it
+                    iBinding.menuItemDarkMode.isVisible = it
+                    iBinding.menuItemAddToHome.isVisible = it
+                    iBinding.menuItemAddBookmark.isVisible = it
+                    iBinding.menuItemShare.isVisible = it
+                    iBinding.menuItemAdBlock.isVisible = it && iUserPreferences.adBlockEnabled
+                    iBinding.menuItemTranslate.isVisible = it
+                }
+            }
+        }
+        /* STYX end */
     }
 
     /**
