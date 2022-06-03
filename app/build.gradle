@@ -125,9 +125,9 @@ android {
 
         styx {
             dimension "BRAND"
-            applicationId "com.jamal2367.styx"
+            applicationId "org.eu.droid_ng.jellyfish"
             versionCode 1
-            versionName "20.0"
+            versionName "1.0"
         }
 
         /*

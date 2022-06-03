@@ -684,8 +684,8 @@ abstract class BrowserActivity : ThemedBrowserActivity(), BrowserView, UIControl
         iBindingToolbarContent = ToolbarContentBinding.inflate(layoutInflater, iBinding.toolbarInclude.toolbar, true)
 
         // TODO: disable those for incognito mode?
-        analytics = userPreferences.analytics
-        crashReport = userPreferences.crashReport
+        analytics = resources.getBoolean(R.bool.pref_support_analytics) && userPreferences.analytics
+        crashReport = resources.getBoolean(R.bool.pref_support_analytics) && userPreferences.crashReport
         showCloseTabButton = userPreferences.showCloseTabButton
 
         if (!isIncognito()) {
@@ -1442,7 +1442,7 @@ abstract class BrowserActivity : ThemedBrowserActivity(), BrowserView, UIControl
         // Check if our tool bar is long enough to display extra buttons
         val threshold = (iBindingToolbarContent.buttonActionBack.width?:3840)*10
         // If our tool bar is longer than 10 action buttons then we show extra buttons
-        (iBinding.toolbarInclude.toolbar.width>threshold).let{
+        (iBinding.toolbarInclude.toolbar.width>threshold || userPreferences.alwaysDesktopUi).let{
             iBindingToolbarContent.buttonActionBack.isVisible = it
             iBindingToolbarContent.buttonActionForward.isVisible = it
             // Hide tab bar action buttons if no room for them

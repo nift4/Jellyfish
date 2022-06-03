@@ -580,4 +580,5 @@
     <string name="action_switch_to_tab">Zu Tab 1 bis 9 wechseln</string>
     <string name="action_switch_to_last_tab">Zum letzten Tab wechseln</string>
     <string name="action_switch_to_last_session">Zur letzten Sitzung wechseln</string>
+	<string name="settings_jellyfish_desktop_ui">Immer Desktop-Toolbar-UI nutzen</string>
 </resources>

@@ -71,12 +71,14 @@
         app:fragment="acr.browser.lightning.settings.fragment.DebugSettingsFragment"
         app:key="@string/pref_key_debug"
         app:title="@string/debug_title"
+        app:isPreferenceVisible="false"
         app:icon="@drawable/ic_bug"
         app:singleLineTitle="false"
         />
 
     <Preference
         app:fragment="acr.browser.lightning.settings.fragment.SponsorshipSettingsFragment"
+        app:isPreferenceVisible="false"
         app:title="@string/settings_contribute"
         app:summary="@string/settings_summary_contribute"
         app:icon="@drawable/ic_giftcard"

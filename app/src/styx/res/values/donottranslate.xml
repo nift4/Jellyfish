@@ -17,11 +17,11 @@
  All Rights Reserved.
 -->
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_name">Styx Browser</string>
-    <string name="pref_summary_contact_us">jamal2362@gmail.com</string>
-    <string name="url_contact_us">mailto:jamal2362@gmail.com?subject=Styx</string>
-    <string name="url_app_home_page">https://github.com/jamal2362/Fulguris</string>
-    <string name="url_app_updates">https://github.com/jamal2362/Fulguris/releases</string>
+    <string name="app_name">Jellyfish Browser</string>
+    <string name="pref_summary_contact_us">chat_ng on Telegram</string>
+    <string name="url_contact_us">https://t.me/chat_ng</string>
+    <string name="url_app_home_page">https://github.com/nift4/Jellyfish</string>
+    <string name="url_app_updates">https://github.com/nift4/Jellyfish</string>
 
     <string name="two">2</string>
     <string name="three">3</string>

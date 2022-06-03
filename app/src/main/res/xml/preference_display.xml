@@ -83,7 +83,7 @@
         />
 
     <SwitchPreferenceCompat
-        android:defaultValue="true"
+        android:defaultValue="false"
         android:key="@string/pref_key_web_page_theme"
         android:title="@string/color_mode"
         android:summary="@string/pref_summary_color_mode"
@@ -100,6 +100,14 @@
         app:iconSpaceReserved="true"
         app:singleLineTitle="false"
         />
+
+
+    <SwitchPreferenceCompat
+        android:defaultValue="false"
+        android:key="jellyfish_desktop_ui"
+        android:title="@string/settings_jellyfish_desktop_ui"
+        app:icon="@drawable/ic_desktop"
+        app:iconSpaceReserved="true"/>
 
     </PreferenceCategory>
 
