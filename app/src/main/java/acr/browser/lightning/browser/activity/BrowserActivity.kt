@@ -1445,11 +1445,10 @@ abstract class BrowserActivity : ThemedBrowserActivity(), BrowserView, UIControl
         (iBinding.toolbarInclude.toolbar.width>threshold || userPreferences.alwaysDesktopUi).let{
             iBindingToolbarContent.buttonActionBack.isVisible = it
             iBindingToolbarContent.buttonActionForward.isVisible = it
-            // Hide tab bar action buttons if no room for them
-            if (tabsView is TabsDesktopView) {
-                (tabsView as TabsDesktopView).iBinding.actionButtons.isVisible = it
-            }
         }
+            if (tabsView is TabsDesktopView) {
+                (tabsView as TabsDesktopView).iBinding.actionButtons.isVisible = true
+            }
 
     }
 
