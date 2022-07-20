@@ -1,6 +1,7 @@
 package acr.browser.lightning.browser
 
 import acr.browser.lightning.R
+import acr.browser.lightning.adblock.AbpUserRules
 import acr.browser.lightning.browser.activity.BrowserActivity
 import acr.browser.lightning.database.bookmark.BookmarkRepository
 import acr.browser.lightning.databinding.MenuMainBinding
@@ -11,6 +12,7 @@ import acr.browser.lightning.utils.Utils
 import acr.browser.lightning.utils.isAppScheme
 import acr.browser.lightning.utils.isSpecialUrl
 import android.graphics.drawable.ColorDrawable
+import android.net.Uri
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -26,6 +28,7 @@ import javax.inject.Inject
 class MenuMain : PopupWindow {
 
     var iBinding: MenuMainBinding
+    val abpUserRules: AbpUserRules
     var iIsIncognito = false
 
     constructor(layoutInflater: LayoutInflater, aBinding: MenuMainBinding = MenuMain.inflate(layoutInflater))
@@ -75,6 +78,7 @@ class MenuMain : PopupWindow {
         val hiltEntryPoint = EntryPointAccessors.fromApplication(iBinding.root.context.applicationContext, HiltEntryPoint::class.java)
         bookmarkModel = hiltEntryPoint.bookmarkRepository
         iUserPreferences = hiltEntryPoint.userPreferences
+        abpUserRules = hiltEntryPoint.abpUserRules
     }
 
     val bookmarkModel: BookmarkRepository
@@ -163,6 +167,16 @@ class MenuMain : PopupWindow {
     fun show(aAnchor: View) {
 
         applyMainMenuItemVisibility()
+
+        (contentView.context as BrowserActivity).tabsManager.let {
+            // Set desktop mode checkbox according to current tab
+            iBinding.menuItemDesktopMode.isChecked = it.currentTab?.desktopMode ?: false
+            // Same with dark mode
+            iBinding.menuItemDarkMode.isChecked = it.currentTab?.darkMode ?: false
+            // And ad block
+            iBinding.menuItemAdBlock.isChecked = it.currentTab?.url?.let { url -> !abpUserRules.isAllowed(
+                Uri.parse(url)) } ?: false
+        }
 
         // Get our anchor location
         val anchorLoc = IntArray(2)
