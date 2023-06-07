@@ -25,6 +25,7 @@ package acr.browser.lightning.settings.fragment
 import acr.browser.lightning.BuildConfig
 import acr.browser.lightning.R
 import acr.browser.lightning.Sponsorship
+import acr.browser.lightning.settings.preferences.PreferenceCategoryEx
 import acr.browser.lightning.settings.preferences.UserPreferences
 import android.content.ActivityNotFoundException
 import android.content.Intent
@@ -159,6 +160,8 @@ class SponsorshipSettingsFragment : AbstractSettingsFragment(),
     private fun populatePreferenceScreen() {
         // First remove all preferences
         preferenceScreen.removeAll()
+
+        addCategorySubscriptions()
         populatePreferenceScreenStaticItems()
         populateSubscriptions()
     }
@@ -167,6 +170,7 @@ class SponsorshipSettingsFragment : AbstractSettingsFragment(),
      *
      */
     private fun populatePreferenceScreenStaticItems() {
+        addCategoryContribute()
         // Show link to five stars review
         addPreferenceLinkToGooglePlayStoreFiveStarsReview()
         //
@@ -217,6 +221,7 @@ class SponsorshipSettingsFragment : AbstractSettingsFragment(),
                               skuDetailsList?.forEach { skuDetails ->
                                   Log.d(LOG_TAG, skuDetails.toString())
                                   val pref = SwitchPreferenceCompat(requireContext())
+                                  pref.isSingleLineTitle = false
                                   pref.title = skuDetails.title
                                   pref.summary = skuDetails.price + formatPeriod(skuDetails.subscriptionPeriod) + "\n" + skuDetails.description
                                   pref.icon = ResourcesCompat.getDrawable(resources, R.drawable.ic_payment, activity?.theme)
@@ -241,7 +246,15 @@ class SponsorshipSettingsFragment : AbstractSettingsFragment(),
                                       false
                                   }
                                   pref.order = 0 // We want it at the top
-                                  preferenceScreen.addPreference(pref)
+
+                                  // Fetch subscription category
+                                  var prefCat: PreferenceCategoryEx? = preferenceScreen.findPreference(getString(R.string.pref_key_subscriptions_category))
+                                  if (prefCat == null) {
+                                      // Create it if not yet present
+                                      prefCat = addCategorySubscriptions()
+                                  }
+                                  // Add this subscription to our category
+                                  prefCat.addPreference(pref)
                               }
                           } else {
                               Log.e(LOG_TAG, "queryPurchasesAsync failed")
@@ -256,6 +269,20 @@ class SponsorshipSettingsFragment : AbstractSettingsFragment(),
                 }
             }
         }
+    }
+
+    /**
+     *
+     */
+    private fun addCategorySubscriptions() : PreferenceCategoryEx {
+        val prefCat = PreferenceCategoryEx(requireContext())
+        prefCat.key = getString(R.string.pref_key_subscriptions_category)
+        prefCat.title = getString(R.string.pref_category_subscriptions)
+        prefCat.summary = getString(R.string.pref_summary_subscriptions)
+        prefCat.order = 0 // We want it at the top
+        prefCat.isIconSpaceReserved = true
+        preferenceScreen.addPreference(prefCat)
+        return prefCat
     }
 
     /**
@@ -283,7 +310,7 @@ class SponsorshipSettingsFragment : AbstractSettingsFragment(),
             startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(resources.getString(R.string.url_app_home_page))))
             true
         }
-        preferenceScreen.addPreference(pref)
+        prefGroup.addPreference(pref)
     }
 
     /**
