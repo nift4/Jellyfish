@@ -345,10 +345,10 @@ abstract class BrowserActivity : ThemedBrowserActivity(), BrowserView, UIControl
                         // TODO: Remove that a few versions down the road
                         && tabsManager.iSessions.count()==1 && tabsManager.allTabs.count()==1) {
                     // First run
-                    welcomeToFulguris()
+                    //welcomeToFulguris()
                 } else {
                     // Version was updated
-                    notifyVersionUpdate()
+                    //notifyVersionUpdate()
                 }
                 // Persist our current version so that we don't kick in next time
                 userPreferences.versionCode = BuildConfig.VERSION_CODE

@@ -114,7 +114,7 @@ android {
             }
 
             ndk {
-                abiFilters "arm64-v8a", "armeabi-v7a", "armeabi", "mips"
+                abiFilters "arm64-v8a", "armeabi-v7a", "armeabi", "x86", "x86_64"
             }
         }
     }
@@ -270,6 +270,8 @@ unMock {
 }
 
 dependencies {
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+
     // Multi DEX is only needed in debug and on older devices from Android 5 and below.
     // If you disable minify in release mode you also need to load and install that library in release for those devices.
     // See [BrowserApp.attachBaseContext]
@@ -333,8 +335,10 @@ dependencies {
     implementation 'com.anthonycr.grant:permissions:1.1.2'
 
     // proxy support
-    implementation 'net.i2p.android:client:0.9.45'
-    implementation 'net.i2p.android:helper:0.9.5'
+    //implementation 'net.i2p.android:client:0.9.45'
+    //implementation 'net.i2p.android:helper:0.9.5'
+    implementation project(':i2p:lib:client')
+    implementation project(':i2p:lib:helper')
 
     implementation 'com.squareup.okhttp3:okhttp:4.9.3'
 

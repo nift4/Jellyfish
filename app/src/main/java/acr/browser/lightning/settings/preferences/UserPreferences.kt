@@ -161,7 +161,7 @@ class UserPreferences @Inject constructor(
      *
      * @see SearchEngineProvider
      */
-    var searchChoice by preferences.intPreference(SEARCH, 1)
+    var searchChoice by preferences.intPreference(SEARCH, 7)
 
     /**
      * The custom URL which should be used for making searches.
@@ -320,7 +320,7 @@ class UserPreferences @Inject constructor(
      *
      * @see SearchEngineProvider
      */
-    var searchSuggestionChoice by preferences.intPreference(SEARCH_SUGGESTIONS, 1)
+    var searchSuggestionChoice by preferences.intPreference(SEARCH_SUGGESTIONS, 0)
 
     /**
      * User can disable Firebase Google Analytics.

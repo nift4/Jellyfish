@@ -58,7 +58,7 @@
                     android:value="SELF" />
             </intent>
         </Preference>
-
+        <!--
         <Preference
             android:title="@string/settings_title_terms_and_conditions"
             android:summary="@string/settings_summary_terms_and_conditions"
@@ -92,14 +92,14 @@
             </intent>
 
         </Preference>
-
+        -->
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/licenses">
 
         <Preference
             android:summary="@string/license_cpal"
-            android:title="@string/app_name"
+            android:title="Fulguris"
             app:icon="@drawable/ic_lightning"
             app:iconSpaceReserved="false"
             app:singleLineTitle="false">
