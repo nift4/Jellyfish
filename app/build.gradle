@@ -323,8 +323,8 @@ dependencies {
 
     // file reading
     final def mezzanineVersion = '1.1.1'
-    implementation "com.anthonycr.mezzanine:mezzanine:$mezzanineVersion"
-    kapt "com.anthonycr.mezzanine:mezzanine-compiler:$mezzanineVersion"
+    implementation "com.github.anthonycr.Mezzanine:mezzanine:$mezzanineVersion"
+    kapt "com.github.anthonycr.Mezzanine:mezzanine-compiler:$mezzanineVersion"
 
     // dependency injection
     implementation "com.google.dagger:dagger:$daggerVersion"
@@ -335,7 +335,7 @@ dependencies {
     compileOnly 'javax.annotation:jsr250-api:1.0'
 
     // permissions
-    implementation 'com.anthonycr.grant:permissions:1.1.2'
+    implementation files('libs/permissions-1.1.2.aar')
 
     // proxy support
     implementation 'net.i2p.android:client:0.9.45'
@@ -349,9 +349,8 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxkotlin:2.4.0'
 
     // tor proxy
-    final def netCipherVersion = '2.0.0-alpha1'
     implementation "info.guardianproject.netcipher:netcipher:2.1.0"
-    implementation "info.guardianproject.netcipher:netcipher-webkit:$netCipherVersion"
+    implementation files('libs/netcipher-webkit-2.0.0-alpha1.jar')
 
     // memory leak analysis
     debugImplementation "com.squareup.leakcanary:leakcanary-android:2.7"
