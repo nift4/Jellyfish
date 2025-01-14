@@ -1,35 +1,33 @@
-<!--
- The contents of this file are subject to the Common Public Attribution License Version 1.0.
- (the "License"); you may not use this file except in compliance with the License.
- You may obtain a copy of the License at:
- https://github.com/Slion/Fulguris/blob/main/LICENSE.CPAL-1.0.
- The License is based on the Mozilla Public License Version 1.1, but Sections 14 and 15 have been
- added to cover use of software over a computer network and provide for limited attribution for
- the Original Developer. In addition, Exhibit A has been modified to be consistent with Exhibit B.
-
- Software distributed under the License is distributed on an "AS IS" basis, WITHOUT WARRANTY OF
- ANY KIND, either express or implied. See the License for the specific language governing rights
- and limitations under the License.
-
- The Original Code is Fulguris.
-
- The Original Developer is the Initial Developer.
- The Initial Developer of the Original Code is Stéphane Lenclud.
-
- All portions of the code written by Stéphane Lenclud are Copyright © 2020 Stéphane Lenclud.
- All Rights Reserved.
--->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="108dp"
     android:height="108dp"
-    android:viewportWidth="47.058823"
-    android:viewportHeight="47.058823">
-  <group android:translateX="11.529411"
-      android:translateY="11.529411">
-    <path
-        android:pathData="M10.1337,2.4046L7.1587,5.4366L10.1517,8.3976L7.0987,11.4156L9.1357,14.4306L5.9277,22.4766L13.2347,15.3856L12.0797,12.5746L16.1747,9.3326L14.1667,6.4306L18.0717,1.5236L10.1337,2.4046Z"
-        android:strokeWidth="1"
-        android:fillColor="#007DFF"
-        android:strokeColor="#ffffff"/>
+    android:viewportWidth="288"
+    android:viewportHeight="288">
+  <group android:scaleX="0.66"
+      android:scaleY="0.66"
+      android:translateX="48.96"
+      android:translateY="48.96">
+    <group>
+      <clip-path
+          android:pathData="M142,-159.47l305.47,305.47l-305.47,305.47l-305.47,-305.47z"/>
+      <path
+          android:pathData="M142,-159.47l152.74,152.74l-152.74,152.74l-152.74,-152.74z"
+          android:fillColor="#94E4FF"/>
+      <path
+          android:pathData="M294.73,-6.73l152.74,152.74l-152.74,152.74l-152.74,-152.74z"
+          android:fillColor="#2288D7"/>
+      <path
+          android:pathData="M142,146l152.74,152.74l-152.74,152.74l-152.74,-152.74z"
+          android:fillColor="#0F5082"/>
+      <path
+          android:pathData="M-10.74,-6.73l152.74,152.74l-152.74,152.74l-152.74,-152.74z"
+          android:fillColor="#4FBFEF"/>
+      <path
+          android:pathData="M215.54,72.46C174.93,113.07 174.93,178.93 215.54,219.54C174.93,178.93 109.07,178.93 68.46,219.54C109.07,178.93 109.07,113.07 68.46,72.46C109.07,113.07 174.93,113.07 215.54,72.46Z"
+          android:fillColor="#ffffff"/>
+      <path
+          android:pathData="M142,146m-16.97,-16.97a24,24 102.15,1 1,33.94 33.94a24,24 102.15,1 1,-33.94 -33.94"
+          android:fillColor="#254055"/>
+    </group>
   </group>
 </vector>
